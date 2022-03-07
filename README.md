@@ -3,14 +3,14 @@
 - Very thanks of other open-source Jalali libraries: [morilog/jalali](https://github.com/morilog/jalali), [jalaali/jalaali-js](https://github.com/jalaali/jalaali-js) and [jdf](https://jdf.scr.ir/jdf)
 - In some cases, we may have used some codes or ideas on some of the named libraries.
 
-- Persian (پارسی) Docs: [majid.codes/easy-jalali](https://majid.codes/easy-jalali?)
+- Persian (پارسی) Docs: [majid.codes/easy-jalali](https://majid.codes/easy-jalali?lang=fa)
 
 ## How to install:
 
 - Using Composer
 
   ```
-  composer require majidend/easy-jalali
+  composer require majidcode/easy-jalali
   ```
 
 Note: this library has been tested in Laravel 8.x and Laravel 9.x.
