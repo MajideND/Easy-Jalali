@@ -1,0 +1,43 @@
+{
+    "name": "majidcode/easy-jalali",
+    "description": "Convert and format Jalali date type in PHP.",
+    "type": "library",
+    "version": "1.0.0",
+    "keywords": [
+        "PHP",
+        "Laravel",
+        "date",
+        "time",
+        "DateTime"
+    ],
+    "homepage": "https://majid.codes",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Majid Jalilian",
+            "email": "info@majid.codes",
+            "homepage": "https://majid.codes"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "nesbot/carbon": "^2.57"
+    },
+    "autoload": {
+        "psr-4": {
+            "EasyJalali\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "JalaliDate": "EasyJalali\\Laravel\\Facade\\JalaliDate"
+            }
+        }
+    },
+    "support": {
+        "issues": "https://github.com/MajideND/easy-jalali/issues",
+        "source": "https://github.com/MajideND/easy-jalali",
+        "docs": "https://github.com/MajideND/easy-jalali/blob/master/README.md"
+    }
+}
