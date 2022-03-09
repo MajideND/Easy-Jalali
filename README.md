@@ -135,3 +135,15 @@ Function Name | Input | Return
 `hour()` | --- | $hour
 `minute()` | --- | $minute
 `second()` | --- | $second
+
+### Modify Functions:
+
+Function Name | Input
+--- | ---
+`addYear()` | Int $years (default: 1): number of years to add datetime
+`addMonth()` | Int $months (default: 1): number of months to add datetime
+`addDay()` | Int $days (default: 1): number of days to add datetime
+`addHour()` | Int $hours (default: 1): number of hours to add datetime
+`addMinute()` | Int $minutes (default: 1): number of minutes to add datetime
+`addSecond()` | Int $seconds (default: 1): number of seconds to add datetime
+`modify()` | Array $datetimeArray: array of different datetime items to increase like: `$datetimeArray['day'] = 25;`
