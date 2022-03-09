@@ -134,4 +134,39 @@ class Helper
     }
   }
 
+  public static function setDateTimeParams($dateItems)
+  {
+    $hour = $minute = $second = null;
+    foreach ($dateItems as $key => $dateItem) {
+        $param = $dateItem;
+        $name = $key;
+        switch ($name) {
+            case 'year':
+                $year = $param;
+                break;
+            case 'month':
+                $month = $param;
+                break;
+            case 'day':
+                $day = $param;
+                break;
+            case 'hour':
+                $hour = $param;
+                break;
+            case 'minute':
+                $minute = $param;
+                break;
+            case 'second':
+                $second = $param;
+                break;
+
+            default:
+
+                break;
+        }
+    }
+    return [$year, $month, $day, $hour, $minute, $second];
+  }
+  
+
 }

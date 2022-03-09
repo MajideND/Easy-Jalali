@@ -54,7 +54,7 @@ class JalaliDate
             }
         }
 
-        $dateParams = self::setParams($dateItems);
+        $dateParams = Helper::setDateTimeParams($dateItems);
 
         return new static($dateParams[0], $dateParams[1], $dateParams[2], $dateParams[3] ?? 0, $dateParams[4] ?? 0, $dateParams[5] ?? 0);
     }
@@ -93,42 +93,6 @@ class JalaliDate
         return new static($jalaliArray[0], $jalaliArray[1], $jalaliArray[2], $this->hour(), $this->minute(), $this->second());
     }
 
-
-
-    private static function setParams($dateItems)
-    {
-
-        $hour = $minute = $second = null;
-        foreach ($dateItems as $key => $dateItem) {
-            $param = $dateItem;
-            $name = $key;
-            switch ($name) {
-                case 'year':
-                    $year = $param;
-                    break;
-                case 'month':
-                    $month = $param;
-                    break;
-                case 'day':
-                    $day = $param;
-                    break;
-                case 'hour':
-                    $hour = $param;
-                    break;
-                case 'minute':
-                    $minute = $param;
-                    break;
-                case 'second':
-                    $second = $param;
-                    break;
-
-                default:
-
-                    break;
-            }
-        }
-        return [$year, $month, $day, $hour, $minute, $second];
-    }
 
     public function toFormat($format = 'Y-m-d H:i:s')
     {
