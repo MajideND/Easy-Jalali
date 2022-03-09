@@ -146,4 +146,12 @@ Function Name | Input
 `addHour()` | Int $hours (default: 1): number of hours to add datetime
 `addMinute()` | Int $minutes (default: 1): number of minutes to add datetime
 `addSecond()` | Int $seconds (default: 1): number of seconds to add datetime
+--- | ---
+`subYear()` | Int $years (default: 1): number of years decrease from datetime
+`subMonth()` | Int $months (default: 1): number of months decrease from datetime
+`subDay()` | Int $days (default: 1): number of days decrease from datetime
+`subHour()` | Int $hours (default: 1): number of hours decrease from datetime
+`subMinute()` | Int $minutes (default: 1): number of minutes decrease from datetime
+`subSecond()` | Int $seconds (default: 1): number of seconds decrease from datetime
+--- | ---
 `modify()` | Array $datetimeArray: array of different datetime items to replace like: `$datetimeArray['day'] = 25;`
