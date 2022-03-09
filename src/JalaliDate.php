@@ -3,6 +3,7 @@ namespace EasyJalali;
 
 use Carbon\Carbon;
 use EasyJalali\Helper;
+use Exception;
 
 class JalaliDate
 {
@@ -79,6 +80,12 @@ class JalaliDate
         );
     }
 
+    public static function fromTimestamp(int $timestamp)
+    {
+        $dateTime = date('Y-m-d H:i:s', $timestamp);
+        return self::fromGeorgian($dateTime);
+    }
+
     public function toGeorgian()
     {
         self::$isGeorgian = true;
@@ -93,6 +100,13 @@ class JalaliDate
         return new static($jalaliArray[0], $jalaliArray[1], $jalaliArray[2], $this->hour(), $this->minute(), $this->second());
     }
 
+    public function toCarbon()
+    {
+        if (! self::$isGeorgian) {
+            throw new Exception("Format is not Georgian!");
+        }
+        return Carbon::create($this->year,$this->month,$this->day,$this->hour,$this->minute,$this->second);
+    }
 
     public function toFormat($format = 'Y-m-d H:i:s')
     {
@@ -105,6 +119,14 @@ class JalaliDate
             $resultDateByFormat .= $this->getJalaliBySpecialKey($format[$i]);
         }
         return $resultDateByFormat;
+    }
+
+    public function toTimestamp()
+    {
+        if (! self::$isGeorgian) {
+            throw new Exception("Format is not Georgian!");
+        }
+        return strtotime($this->toFormat('Y-m-d H:i:s'));
     }
 
 
