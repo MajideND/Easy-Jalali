@@ -113,6 +113,7 @@ Function Name | Inputs
 `fromJalali()` | String $JalaliDate: Jalali datetime string, String $format (default: 'Y-m-d H:i:s'): Jalali datetime format
 `fromGeorgian()` | String $georgianDate: Georgian datetime string, String $format (default: 'Y-m-d H:i:s'): Georgian datetime format
 `fromCarbon()` | Carbon $carbon: Carbon DateTime
+`fromTimestamp()` | Int $timestamp: Georgian timestamp
 
 ### Convert Functions:
 
@@ -126,6 +127,8 @@ Function Name | For what? | Requirement
 Function Name | Input | Return
 --- | --- | ---
 `toFormat()` | String $format (default: 'Y-m-d H:i:s'): Datetime format based on your date type | String $resultDateByFormat: DateTime based on your $format from input
+`toTimestamp()`| --- | Int $timestamp: Timestamp for your Georgian datetime.
+`toCarbon()`| --- | Carbon $carbon: A Carbon class with your Georgian datetime.
 `year()` | --- | $year
 `month()` | --- | $month
 `day()` | --- | $day
