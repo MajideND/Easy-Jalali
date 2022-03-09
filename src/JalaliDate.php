@@ -87,6 +87,15 @@ class JalaliDate
         return self::fromGeorgian($dateTime);
     }
 
+    public static function now($isGeorgian = true)
+    {
+        $nowCarbon = self::fromCarbon(Carbon::now());
+        if (!$isGeorgian) {
+            return $nowCarbon->toJalali();
+        }
+        return $nowCarbon;
+    }
+
     public function toGeorgian()
     {
         self::$isGeorgian = true;
