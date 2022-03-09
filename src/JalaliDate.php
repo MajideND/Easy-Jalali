@@ -1,4 +1,5 @@
 <?php
+
 namespace EasyJalali;
 
 use Carbon\Carbon;
@@ -102,10 +103,10 @@ class JalaliDate
 
     public function toCarbon()
     {
-        if (! self::$isGeorgian) {
+        if (!self::$isGeorgian) {
             throw new Exception("Format is not Georgian!");
         }
-        return Carbon::create($this->year,$this->month,$this->day,$this->hour,$this->minute,$this->second);
+        return Carbon::create($this->year, $this->month, $this->day, $this->hour, $this->minute, $this->second);
     }
 
     public function toFormat($format = 'Y-m-d H:i:s')
@@ -115,7 +116,7 @@ class JalaliDate
             return date($format, $dateTime);
         }
         $resultDateByFormat = '';
-        for ($i=0; $i < strlen($format); $i++) { 
+        for ($i = 0; $i < strlen($format); $i++) {
             $resultDateByFormat .= $this->getJalaliBySpecialKey($format[$i]);
         }
         return $resultDateByFormat;
@@ -123,7 +124,7 @@ class JalaliDate
 
     public function toTimestamp()
     {
-        if (! self::$isGeorgian) {
+        if (!self::$isGeorgian) {
             throw new Exception("Format is not Georgian!");
         }
         return strtotime($this->toFormat('Y-m-d H:i:s'));
@@ -160,7 +161,7 @@ class JalaliDate
 
             case 'd':
                 $day = $this->day();
-                $fullDay = strlen($day) == 2 ? $day :('0' . $day);
+                $fullDay = strlen($day) == 2 ? $day : ('0' . $day);
                 return $fullDay;
                 break;
 
@@ -171,7 +172,7 @@ class JalaliDate
 
             case 'H':
                 $hour = intval($this->hour());
-                $fullHour = strlen($hour) == 2 ? $hour :('0' . $hour);
+                $fullHour = strlen($hour) == 2 ? $hour : ('0' . $hour);
                 return $fullHour;
                 break;
 
@@ -251,5 +252,53 @@ class JalaliDate
     public function second()
     {
         return $this->second;
+    }
+
+    public function modify($datetimeArray)
+    {
+        return new static(
+            $datetimeArray['year'] ?? $this->year,
+            $datetimeArray['month'] ?? $this->month,
+            $datetimeArray['day'] ?? $this->day,
+            $datetimeArray['hour'] ?? $this->hour,
+            $datetimeArray['minute'] ?? $this->minute,
+            $datetimeArray['second'] ?? $this->second
+        );
+    }
+
+    public function addDay($days = 1)
+    {
+        $datetimeArray['day'] = $this->day + $days;
+        return $this->modify($datetimeArray);
+    }
+
+    public function addMonth($months = 1)
+    {
+        $datetimeArray['month'] = $this->month + $months;
+        return $this->modify($datetimeArray);
+    }
+
+    public function addYear($years = 1)
+    {
+        $datetimeArray['year'] = $this->year + $years;
+        return $this->modify($datetimeArray);
+    }
+
+    public function addHour($hours = 1)
+    {
+        $datetimeArray['hour'] = $this->hour + $hours;
+        return $this->modify($datetimeArray);
+    }
+
+    public function addMinute($minutes = 1)
+    {
+        $datetimeArray['minute'] = $this->minute + $minutes;
+        return $this->modify($datetimeArray);
+    }
+
+    public function addSecond($seconds = 1)
+    {
+        $datetimeArray['second'] = $this->second + $seconds;
+        return $this->modify($datetimeArray);
     }
 }
