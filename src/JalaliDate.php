@@ -254,7 +254,7 @@ class JalaliDate
         return $this->second;
     }
 
-    public function modify($datetimeArray)
+    public function modify(Array $datetimeArray)
     {
         return new static(
             $datetimeArray['year'] ?? $this->year,
@@ -299,6 +299,42 @@ class JalaliDate
     public function addSecond($seconds = 1)
     {
         $datetimeArray['second'] = $this->second + $seconds;
+        return $this->modify($datetimeArray);
+    }
+
+    public function subDay($days = 1)
+    {
+        $datetimeArray['day'] = $this->day - $days;
+        return $this->modify($datetimeArray);
+    }
+
+    public function subMonth($months = 1)
+    {
+        $datetimeArray['month'] = $this->month - $months;
+        return $this->modify($datetimeArray);
+    }
+
+    public function subYear($years = 1)
+    {
+        $datetimeArray['year'] = $this->year - $years;
+        return $this->modify($datetimeArray);
+    }
+
+    public function subHour($hours = 1)
+    {
+        $datetimeArray['hour'] = $this->hour - $hours;
+        return $this->modify($datetimeArray);
+    }
+
+    public function subMinute($minutes = 1)
+    {
+        $datetimeArray['minute'] = $this->minute - $minutes;
+        return $this->modify($datetimeArray);
+    }
+
+    public function subSecond($seconds = 1)
+    {
+        $datetimeArray['second'] = $this->second - $seconds;
         return $this->modify($datetimeArray);
     }
 }
